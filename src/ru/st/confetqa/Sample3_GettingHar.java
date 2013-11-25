@@ -16,7 +16,7 @@ import static org.junit.matchers.JUnitMatchers.containsString;
 public class Sample3_GettingHar {
 
   @Test
-  public void getHar() throws Exception {
+  public void gettingHar() throws Exception {
     ProxyServer bmp = new ProxyServer(8081);
     bmp.start();
 

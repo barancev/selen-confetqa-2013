@@ -19,41 +19,39 @@ import java.io.IOException;
 import static org.junit.Assert.assertThat;
 import static org.junit.matchers.JUnitMatchers.containsString;
 
-public class Sample4_ChangingUserAgent {
+public class Sample6_StrippingReferer {
 
   @Test
-  public void changingUserAgent() throws Exception {
+  public void strippingReferer() throws Exception {
     ProxyServer bmp = new ProxyServer(8081);
     bmp.start();
 
-    //RequestInterceptor userAgentChanger = new UserAgentChanger(
-    //    "Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91)"
-    //        + "AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
-    //bmp.addRequestInterceptor(userAgentChanger);
+    HttpRequestInterceptor stripper = new RefererStripper();
+    bmp.addRequestInterceptor(stripper);
 
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability(CapabilityType.PROXY, bmp.seleniumProxy());
 
     WebDriver driver = new FirefoxDriver(caps);
 
-    driver.get("http://software-testing.ru/forum");
-    Thread.sleep(20000);
+    driver.get("http://www.whatismyreferer.com/");
+
+    assertThat(
+        driver.findElement(By.tagName("body")).getText(),
+        containsString("No referer"));
+
+    Thread.sleep(10000);
 
     driver.quit();
 
     bmp.stop();
   }
 
-  public static class UserAgentChanger implements RequestInterceptor {
-    private String userAgent;
-
-    public UserAgentChanger(String userAgent) {
-      this.userAgent = userAgent;
-    }
+  public static class RefererStripper implements HttpRequestInterceptor {
 
     @Override
-    public void process(BrowserMobHttpRequest request) {
-      request.addRequestHeader("User-Agent", userAgent);
+    public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
+      request.removeHeaders("Referer");
     }
   }
 }

@@ -23,6 +23,7 @@ public class Sample2_Authentication {
     ProxyServer bmp = new ProxyServer(8081);
     bmp.start();
 
+    //
     //bmp.autoBasicAuthorization("", "admin", "password");
 
     DesiredCapabilities caps = new DesiredCapabilities();
