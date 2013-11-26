@@ -15,7 +15,7 @@ public class Sample1_StartWithProxy {
 
   @Test
   public void startWithProxy() throws Exception {
-    ProxyServer bmp = new ProxyServer(8081);
+    ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
     DesiredCapabilities caps = new DesiredCapabilities();

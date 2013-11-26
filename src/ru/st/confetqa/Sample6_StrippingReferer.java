@@ -23,7 +23,7 @@ public class Sample6_StrippingReferer {
 
   @Test
   public void strippingReferer() throws Exception {
-    ProxyServer bmp = new ProxyServer(8081);
+    ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
     HttpRequestInterceptor stripper = new RefererStripper();
@@ -34,7 +34,8 @@ public class Sample6_StrippingReferer {
 
     WebDriver driver = new FirefoxDriver(caps);
 
-    driver.get("http://www.whatismyreferer.com/");
+    driver.get("http://localhost/test_referer.html");
+    driver.findElement(By.tagName("a")).click();
 
     assertThat(
         driver.findElement(By.tagName("body")).getText(),

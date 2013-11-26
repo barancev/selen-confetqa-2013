@@ -20,7 +20,7 @@ public class Sample2_Authentication {
 
   @Test
   public void autoBasicAuthorization() throws Exception {
-    ProxyServer bmp = new ProxyServer(8081);
+    ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
     //

@@ -23,7 +23,7 @@ public class Sample4_ChangingUserAgent {
 
   @Test
   public void changingUserAgent() throws Exception {
-    ProxyServer bmp = new ProxyServer(8081);
+    ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
     //RequestInterceptor userAgentChanger = new UserAgentChanger(
@@ -37,7 +37,7 @@ public class Sample4_ChangingUserAgent {
     WebDriver driver = new FirefoxDriver(caps);
 
     driver.get("http://software-testing.ru/forum");
-    Thread.sleep(20000);
+    Thread.sleep(10000);
 
     driver.quit();
 

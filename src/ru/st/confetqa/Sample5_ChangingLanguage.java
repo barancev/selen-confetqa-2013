@@ -13,7 +13,7 @@ public class Sample5_ChangingLanguage {
 
   @Test
   public void changingLanguage() throws Exception {
-    ProxyServer bmp = new ProxyServer(8081);
+    ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
     RequestInterceptor languageChanger = new LanguageChanger("en,ru");
@@ -25,7 +25,7 @@ public class Sample5_ChangingLanguage {
     WebDriver driver = new FirefoxDriver(caps);
 
     driver.get("http://ci.seleniumhq.org:8080/");
-    Thread.sleep(20000);
+    Thread.sleep(10000);
 
     driver.quit();
 
