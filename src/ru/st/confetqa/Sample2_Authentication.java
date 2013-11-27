@@ -23,8 +23,7 @@ public class Sample2_Authentication {
     ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
-    //
-    //bmp.autoBasicAuthorization("", "admin", "password");
+    bmp.autoBasicAuthorization("", "admin", "password");
 
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability(CapabilityType.PROXY, bmp.seleniumProxy());

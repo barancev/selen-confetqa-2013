@@ -26,10 +26,10 @@ public class Sample4_ChangingUserAgent {
     ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
-    //RequestInterceptor userAgentChanger = new UserAgentChanger(
-    //    "Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91)"
-    //        + "AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
-    //bmp.addRequestInterceptor(userAgentChanger);
+    RequestInterceptor userAgentChanger = new UserAgentChanger(
+        "Mozilla/5.0 (Linux; U; Android 2.2; en-us; Nexus One Build/FRF91)"
+            + "AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+    bmp.addRequestInterceptor(userAgentChanger);
 
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability(CapabilityType.PROXY, bmp.seleniumProxy());

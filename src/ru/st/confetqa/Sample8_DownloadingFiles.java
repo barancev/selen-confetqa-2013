@@ -46,6 +46,8 @@ public class Sample8_DownloadingFiles {
     String fileName = driver.findElement(By.tagName("body")).getText();
     assertTrue(new File(fileName).exists());
 
+    Thread.sleep(30000);
+
     driver.quit();
 
     bmp.stop();

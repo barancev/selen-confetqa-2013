@@ -26,8 +26,8 @@ public class Sample7_InjectingJavaScript {
     ProxyServer bmp = new ProxyServer(8071);
     bmp.start();
 
-    //HttpResponseInterceptor injector = new JQueryInjector();
-    //bmp.addResponseInterceptor(injector);
+    HttpResponseInterceptor injector = new JQueryInjector();
+    bmp.addResponseInterceptor(injector);
 
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability(CapabilityType.PROXY, bmp.seleniumProxy());
