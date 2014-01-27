@@ -8,7 +8,32 @@
   <packaging>jar</packaging>
 
   <name>selenium-extensions</name>
+  <description>A set of samples to demonstrate Selenium and BrowserMobProxy integration</description>
   <url>https://github.com/barancev/selen-confetqa-2013</url>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Alexei Barantsev</name>
+      <email>barancev@gmail.com</email>
+      <roles>
+        <role>Administrator</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:barancev/selen-confetqa-2013.git</connection>
+    <developerConnection>scm:git:git@github.com:barancev/selen-confetqa-2013.git</developerConnection>
+    <url>scm:git:git@github.com:barancev/selen-confetqa-2013.git</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
